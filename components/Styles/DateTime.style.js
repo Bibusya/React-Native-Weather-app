@@ -19,10 +19,6 @@ export default StyleSheet.create({
     fontWeight: "300",
     color: "#eee",
   },
-  rightAlign: {
-    textAlign: "right",
-    marginTop: 20,
-  },
   location: {
     fontSize: 20,
     color: "white",

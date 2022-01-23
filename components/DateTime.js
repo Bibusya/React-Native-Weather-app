@@ -107,9 +107,6 @@ function DateTime({ current, timezone }) {
           />
         </View>
       </View>
-      <View style={styles.rightAlign}>
-        <Text style={styles.location}>{timezone}</Text>
-      </View>
     </View>
   );
 }
