@@ -17,26 +17,23 @@ function WeatherScroll({ weatherData }) {
 }
 
 const CurrentTemp = ({ data }) => {
-  if (data && data.weather) {
-    const img = {
-      uri:
-        "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png",
-    };
-    return (
-      <View style={styles.currentTempContainer}>
-        <Image source={img} style={styles.weatherIcon} />
-        <View style={styles.innerContainer}>
-          <Text style={styles.day}>
-            {moment(data.dt * 1000).format("dddd")}
-          </Text>
-          <Text style={styles.temp}>Night {" " + data.temp.night}&#176;C</Text>
-          <Text style={styles.temp}>Day {" " + data.temp.day}&#176;C</Text>
-        </View>
-      </View>
-    );
-  } else {
-    return <View></View>;
+  if (!data || !data.weather) {
+    return null;
   }
+
+  const img = {
+    uri: "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png",
+  };
+  return (
+    <View style={styles.currentTempContainer}>
+      <Image source={img} style={styles.weatherIcon} />
+      <View style={styles.innerContainer}>
+        <Text style={styles.day}>{moment(data.dt * 1000).format("dddd")}</Text>
+        <Text style={styles.temp}>Night {" " + data.temp.night}&#176;C</Text>
+        <Text style={styles.temp}>Day {" " + data.temp.day}&#176;C</Text>
+      </View>
+    </View>
+  );
 };
 
 export default WeatherScroll;
